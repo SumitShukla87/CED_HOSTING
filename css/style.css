@@ -1563,7 +1563,7 @@ a.button4:hover {
 	display: block;
 	text-transform: uppercase;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+.register-top-grid input[type="text"], input[type="email"],input[type="number"], .register-bottom-grid input[type="password"] {
 	border: 1px solid #555;
 	outline-color:#FD9F3E;
 	width: 96%;
@@ -1641,7 +1641,7 @@ a.button4:hover {
 .register-but{
 	margin-top:1em;
 }
-.register-but form input[type="submit"] {
+.register-but  input[type="submit"] {
 	background: #e7663f;
 	color: #FFF;
 	font-size: 1.2em;
@@ -3660,4 +3660,13 @@ a.button2 {
 .contact-left input[type="submit"], .contact-left input[type="reset"] {
     width: 30%;
 }
+}
+/**defined css changes*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance:textfield;
 }

@@ -81,7 +81,7 @@
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
 									<ul>
 										<li>August 15, 2016</li>
-										<li><a href="single.html">Reply</a></li>
+										<li><a href="single.php">Reply</a></li>
 									</ul>	
 								</div>
 								<div class="clearfix"></div>
@@ -95,7 +95,7 @@
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
 									<ul>
 										<li>August 15, 2016</li>
-										<li><a href="single.html">Reply</a></li>
+										<li><a href="single.php">Reply</a></li>
 									</ul>	
 								</div>
 								<div class="clearfix"></div>
@@ -109,7 +109,7 @@
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
 									<ul>
 										<li>August 15, 2016</li>
-										<li><a href="single.html">Reply</a></li>
+										<li><a href="single.php">Reply</a></li>
 									</ul>	
 								</div>
 								<div class="clearfix"></div>
