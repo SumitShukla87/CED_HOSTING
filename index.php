@@ -1,4 +1,7 @@
-<?php require "header.php"?>
+<?php
+    session_start();
+    require "header.php";
+    ?>
     <!---banner--->
         <div class="banner">
             <div class="container">

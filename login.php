@@ -1,16 +1,22 @@
-<?php require "header.php";
+<?php 
 require "class/Dbcon.php";
 require "class/User.php";
 $db = new Dbcon(); ?>
 <?php
+session_start();
 if (isset($_POST['submit'])) {
     
     $email = isset($_POST['email'])?$_POST['email']:'';
-    $password = md5(isset($_POST['password'])?$_POST['password']:'');
+    $password = md5(isset($_POST['pass'])?$_POST['pass']:'');
    
     $login_data = new User();
     $login_data->login($email, $password, $db->conn);
-}?>
+    // if ($login_data) {
+    //     header("location:index.php");
+    // }
+}
+require "header.php";
+?>
     <!---header--->
         <!---login--->
             <div class="content">

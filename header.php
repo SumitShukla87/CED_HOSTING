@@ -1,12 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<?php 
-session_start();
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -55,6 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
 
+                    <?php if (isset($_SESSION['userdata'])) {?>
             <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -74,9 +66,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="blog.php">Blog</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                                 <li><a href="contact.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f"></i> Cart</a></li>
-                                <?php if (isset($_SESSION['userdata'])) {?>
                                 <li><a href="logout.php">Logout</a></li>
-                                <?php } else {?>
+                                <?php } 
+                                else {?>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="index.php">Home <i class="sr-only">(current)</i></a></li>
+                                <li><a href="about.php">About</a></li>
+                                <li><a href="services.php">Services</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="linuxhosting.php">Linux hosting</a></li>
+                                        <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
+                                        <li><a href="windowshosting.php">Windows Hosting</a></li>
+                                        <li><a href="cmshosting.php">CMS Hosting</a></li>
+                                    </ul>			
+                                </li>
+                                <li><a href="pricing.php">Pricing</a></li>
+                                <li><a href="blog.php">Blog</a></li>
+                                <li><a href="contact.php">Contact</a></li>
+                                <li><a href="contact.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f"></i> Cart</a></li>
+
                                     <li><a href="login.php">Login</a></li>
                                 <?php }?>
                             </ul>

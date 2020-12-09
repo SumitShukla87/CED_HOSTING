@@ -12,11 +12,13 @@
  * @link     https://localhost/
  */
 
- require "header.php"; 
+
 require "class/Dbcon.php";
 require "class/User.php";
+
 $db = new Dbcon();
 $errors = array();
+require "header.php"; 
 ?>
 
 <?php
@@ -70,15 +72,15 @@ if (isset($_POST['register'])) {
                         </h3>
                         <div>
                             <span>Name<label>*</label></span>
-                            <input type="text" name="name" class="nameclass" id="fname" onblur="this.value=removeSpaces(this.value); title="Please Enter name in valid Format" pattern="^[a-zA-Z ]*$">
+                            <input type="text" name="name" class="nameclass" id="fname"  title="Please Enter name in valid Format" pattern="^[a-zA-Z ]*$" required>
                         </div>
                         <div>
                             <span>Mobile<label>*</label></span>
-                            <input type="text" name="mobile" class="mobile" pattern="(([1-9]{1}[1-9]{9})|({1}[0-9]{10}))">
+                            <input type="text" name="mobile" class="mobile"  pattern="^(|[0]){0,1}([7-9]{1})([0-9]{9})$" required>
                         </div>
                         <div>
                             <span>Email Address<label>*</label></span>
-                            <input type="text" name="email" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <input type="text" name="email" title="please Enter Email in valid Format" pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$" required>
                         </div>
                         <div>
                             <span>Security Question<label>*</label>     
@@ -90,7 +92,7 @@ if (isset($_POST['register'])) {
                             <option value="What was your dream job as a child?">What was your dream job as a child?</option>
                             <option value="What is your favourite teacher's nickname?">What is your favourite teacher's nickname?</option>
                              </select>
-                            <input type="text" name="security_ans" id="sans" title="AlphaNumeric are allowed" pattern="[a-zA-Z-]+[a-zA-Z0-9\s]*">
+                            <input type="text" name="security_ans" id="sans" title="AlphaNumeric are allowed" pattern="[a-zA-Z-]+[a-zA-Z0-9\s]*" required>
                         </div>
 
                         <div class="clearfix">
@@ -108,13 +110,13 @@ if (isset($_POST['register'])) {
                             <span>Password<label>*</label></span>
                             <input type="password" name="pass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must 
                             contain at least one number and one uppercase and lowercase letter, 
-                            and at least 8 to 16 characters">
+                            and at least 8 to 16 characters" required>
                         </div>
                         <div>
                             <span>Confirm Password<label>*</label></span>
                             <input type="password" name="repass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must 
                             contain at least one number and one uppercase and lowercase letter, 
-                            and at least 8 to 16 characters">
+                            and at least 8 to 16 characters" required>
                         </div>
                         
                         

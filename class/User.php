@@ -53,12 +53,12 @@ class User
                     echo"<script>alert('You are Not authorized yet by Admin Please wait till approval');</script>";
                 } else {
                     if ($row['is_admin']==1) {
-                        header('location:admin/dashboard.php');
+                        // header('location:admin/dashboard.php');
                         $_SESSION['admin'] = $row['user_name'];
                     } elseif ($row['is_admin']==0) {
-                        $_SESSION['userdata'] = array('username'=>$row['user_name'],'uid'=>$row['user_id']);
-                        // header('location:index.php');
-                        echo "<script>alert('Login Successfull');</script>";
+                        $_SESSION['userdata'] = array('username'=>$row['name'],'uid'=>$row['id']);
+                         echo "<script>alert('Login Successful');</script>";
+                         header('location:index.php');
                     } else {
                         unset($_SESSION);
                         echo "<script>alert('Access denied');</script>";

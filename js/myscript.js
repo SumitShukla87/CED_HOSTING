@@ -2,12 +2,12 @@ $(document).ready(function(){
     $('.mobile').keyup(function () {
     this.value = this.value.replace(/[^0-9]/g,'');
     });
-    $(document).on('keypress','.mobile',function(e){
-        if($(e.target).prop('value').length>=10){
-        if(e.keyCode!=32)
-        {return false} 
-        }
-    });
+    // $(document).on('keypress','.mobile',function(e){
+    //     if($(e.target).prop('value').length>=10){
+    //     if(e.keyCode!=32)
+    //     {return false} 
+    //     }
+    // });
     $("#fname").keyup(function() {
        
          $(this).val($(this).val().replace(/  +/g, ' '));
