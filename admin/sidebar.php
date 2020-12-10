@@ -32,6 +32,7 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  
 </head>
 
 <body>
@@ -59,7 +60,7 @@
               <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ni ni-briefcase-24 text-orange"></i>Products<i class="caret"></i></a>
               <ul class="dropdown-menu">
               <li><a href="addcategory.php" class="nav-link">Create Category</a></li>
-              <li><a href="#" class="nav-link">Add Product</a></li>
+              <li><a href="addproduct.php" class="nav-link">Add Product</a></li>
               <li><a href="#"class="nav-link">View Products</a></li>
               <li><a href="#" class="nav-link">Create New Offers</a></li>
               </ul>

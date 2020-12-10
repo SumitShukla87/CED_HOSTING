@@ -14,7 +14,7 @@
 session_start();
 if ($_SESSION['admin']== "") {
     header("location:../login.php");
-} 
+}
 require "sidebar.php";
 require "../class/Dbcon.php";
 require "../class/Product.php";
@@ -24,14 +24,12 @@ $prod = new Product();?>
 <div class="main-content" id="panel">
     <?php
     if (isset($_POST['add'])) {
-        
         $cat_id = strtolower(isset($_POST['category'])?$_POST['category']:'');
         $name = isset($_POST['sub_category'])?$_POST['sub_category']:'';
 
         $date = date("Y-m-d h:i:s");
         $link = isset($_POST['link'])?$_POST['link']:'';
         $prod->addSubcategory($cat_id, $name, $link, $date, $db->conn);
-    
     }
 ?>
 
@@ -70,7 +68,7 @@ $prod = new Product();?>
     </div>
     <div class="container pt-5 mt-5 pl-5 pr-5 mb-5 pb-5">
         <form action="" method="POST">
-            <h1 class="text-success text-center">Create Category</h1>
+            <h1 class="text-orange text-dark">Create Category</h1>
         <?php $details =$prod->showCategory($db->conn);
         foreach ($details as $key=> $value) {?>
         <div class="form-group">
@@ -99,10 +97,11 @@ $prod = new Product();?>
         <table id='example' class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
+                    <th scope="col"> Id</th>
                     <th scope="col" class="sort">Category</th>
-                    <th scope="col">Sub_category Id</th>
-                    <th scope="col">Sub-Category Name</th>
-                    <th scope="col">Avilable/Unavilable</th>
+                    
+                    <th scope="col">Sub-Category</th>
+                    <th scope="col">Visible/Hidden</th>
                     <th scope="col">Launch Date</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
@@ -112,17 +111,24 @@ $prod = new Product();?>
             <tbody class="tbody-dark" >
             <?php $details =$prod->showSubcategory($db->conn);
             foreach ($details as $key=> $value) {?>
+            <form action=""></form>
                 <tr>
+                <td><?php echo $value['id']; ?></td>
                     <td></td>
-                    <td><?php echo $value['id']; ?></td>
+                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                    <td> <input type="text" name="name" value="<?php echo $value['prod_name'] ?>"></td>
+                    <?php } else { ?>
                     <td><?php echo $value['prod_name']?></td>
+                    <?php }?>
+                    <!-- <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                    <?php } ?> -->
                     <td>
-                        <?php 
+                        <?php
                             $status = $value['prod_available'];
                         if ($status == 1) {
-                            echo "Avilable";
+                            echo "Visible";
                         } else {
-                            echo "Unavilable";
+                            echo "Hidden";
                         }
                         ?>
                     </td>
@@ -130,10 +136,11 @@ $prod = new Product();?>
                         <?php echo $value['prod_launch_date'];?>
                     </td>
                         <td>
-                            <button type="button" class="btn-danger">Edit</button>
+                        <input type="hidden" name="id" value="<?php echo $value['id']; ?> ">
+                            <input type="submit" class="btn-danger" name="edit" value="Edit">
                         </td>
                         <td>
-                        <button type="button" class="btn-success">Delete</button>
+                            <button class="btn-success"><a href="#!" class="btn-success">Delete</a></button>
                         </td>
                 </tr>
             <?php }?>

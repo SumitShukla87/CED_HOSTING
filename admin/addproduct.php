@@ -54,7 +54,7 @@ $prod = new Product();?>
                                     <a href="dashboard.php">Dashboards</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Create Category
+                                    Add New Product
                                 </li>
                             </ol>
                         </nav>
@@ -68,80 +68,82 @@ $prod = new Product();?>
             </div>
         </div>
     </div>
+    
     <div class="container pt-5 mt-5 pl-5 pr-5 mb-5 pb-5">
+    <div class="card p-3">
         <form action="" method="POST">
-            <h1 class="text-success text-center">Create Category</h1>
-        <?php $details =$prod->showCategory($db->conn);
-        foreach ($details as $key=> $value) {?>
-        <div class="form-group">
-                <label for="exampleFormControlSelect1">Choose Category</label>
+        <div class="mt-5 mb-5">
+
+            <h1>Create New Product</h1>
+            <h4>Enter Product Details</h4>
+        </div>    
+        <hr>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Product Category</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
+        <?php $details =$prod->showSubcategory($db->conn);
+
+        foreach ($details as $key=> $value) {?>
+
                     <option value="<?php echo $value['id'] ?>"><?php echo $value['prod_name'] ?></option>
-                </select>
+                
+        <?php } ?>
+        </select>
             </div>
 
-        <?php } ?>
             
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Add Sub-Category</label>
-                <input class="form-control" type="text" name="sub_category" required placeholder="Enter Sub-Category Here" id="example-text-input">
+                <label for="example-text-input" class="form-control-label">Enter Product Name</label>
+                <input class="form-control" type="text" name="product_name" required placeholder="Enter Product Name  Here" id="example-text-input">
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Link Address</label>
-                <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="example-text-input">
+                <label for="example-text-input" class="form-control-label">Page Url</label>
+                <input class="form-control" type="text" name="url" required  id="example-text-input">
             </div>
-            <input type="submit" name="add" class="btn btn-outline-danger" value="Add-Sub-category">
+           <hr>
+            <h3>Product Description</h3>
+            <hr>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Enter Monthly Price</label>
+                <input class="form-control" type="number" placeholder="ex:23" name="mprice" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Enter Annual Price</label>
+                <input class="form-control" type="number" placeholder="ex:23" name="aprice" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">SKU</label>
+                <input class="form-control" type="text" name="sku" required  id="example-text-input">
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+            <h4>Features</h4>
+           <hr>
+           <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Web Space In GB</label>
+                <input class="form-control" type="text" name="gspace" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Bandwidth In GB</label>
+                <input class="form-control" type="text" name="gband_width" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Free Domain</label>
+                <input class="form-control" type="text" name="gband_width" placeholder="Enter 0 if no domain is avilable" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Launguage/Technically Support</label>
+                <input class="form-control" type="text" name="launguage" placeholder="Separate by (,) Ex: PHP, MySQL, MongoDB" required  id="example-text-input">
+            </div>
+            <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Mailbox</label>
+                <input class="form-control" type="text" name="mail_box" placeholder="Enter Number of mailbox will be provided, enter 0 if none" required  id="example-text-input">
+            </div>
+
+
+            <input type="submit" name="add" class="btn btn-outline-success" value="Add-Product">
         </form>
     </div>
-    <div class="table-responsive">
-    <div>
-        <div class="container">
-        <table id='example' class="table table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col" class="sort">Category</th>
-                    <th scope="col">Sub_category Id</th>
-                    <th scope="col">Sub-Category Name</th>
-                    <th scope="col">Avilable/Unavilable</th>
-                    <th scope="col">Launch Date</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-
-                </tr>
-            </thead>
-            <tbody class="tbody-dark" >
-            <?php $details =$prod->showSubcategory($db->conn);
-            foreach ($details as $key=> $value) {?>
-                <tr>
-                    <td></td>
-                    <td><?php echo $value['id']; ?></td>
-                    <td><?php echo $value['prod_name']?></td>
-                    <td>
-                        <?php 
-                            $status = $value['prod_available'];
-                        if ($status == 1) {
-                            echo "Avilable";
-                        } else {
-                            echo "Unavilable";
-                        }
-                        ?>
-                    </td>
-                    <td>
-                        <?php echo $value['prod_launch_date'];?>
-                    </td>
-                        <td>
-                            <button type="button" class="btn-danger">Edit</button>
-                        </td>
-                        <td>
-                        <button type="button" class="btn-success">Delete</button>
-                        </td>
-                </tr>
-            <?php }?>
-            </tbody>
-        </table>
-    </div>
-    </div>
-    
     </div>
   
 <?php require "footer.php";?>
