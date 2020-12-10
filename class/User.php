@@ -50,11 +50,13 @@ class User
             while ($row = $result->fetch_assoc()) {
               
                 if (($row['email_approved']==0 || $row['phone_approved']==0 ) && $row['active']==0) {
-                    echo"<script>alert('You are Not authorized yet by Admin Please wait till approval');</script>";
+                    echo"<script>alert('Please Verify Your Mobile No or Email Address');
+                    window.location.href='./mobile_verify.php'</script>";
                 } else {
                     if ($row['is_admin']==1) {
-                        // header('location:admin/dashboard.php');
-                        $_SESSION['admin'] = $row['user_name'];
+                        $_SESSION['admin'] = $row['name'];
+                        header('location:admin/dashboard.php');
+                 
                     } elseif ($row['is_admin']==0) {
                         $_SESSION['userdata'] = array('username'=>$row['name'],'uid'=>$row['id']);
                          echo "<script>alert('Login Successful');</script>";
@@ -69,4 +71,31 @@ class User
             echo "<script>alert('Please Enter valid Login Details!!!');</script>";
         }
     }
+    /**
+     * Function of approve the Request of Users
+     */
+    public function update($id, $conn)
+    {
+        $sql = "UPDATE  `tbl_user` SET `phone_approved`=1 , `active` = 1 WHERE `email`='".$id."'";
+     
+
+        if ($conn->query($sql) === true) {
+            return true;
+        } else {
+            echo $conn->error;
+        }
+    }
+    /**
+     * Function to check mobile no
+     */
+    public function check($id, $conn)
+    {
+        $sql = "SELECT  `mobile` from `tbl_user` WHERE `email`='".$id."'";
+        $result =$conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+    }
+
 }

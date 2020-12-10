@@ -3670,3 +3670,6 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance:textfield;
 }
+.otp-page{
+    height: 400px;
+}

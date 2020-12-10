@@ -92,7 +92,7 @@ if (isset($_POST['register'])) {
                             <option value="What was your dream job as a child?">What was your dream job as a child?</option>
                             <option value="What is your favourite teacher's nickname?">What is your favourite teacher's nickname?</option>
                              </select>
-                            <input type="text" name="security_ans" id="sans" title="AlphaNumeric are allowed" pattern="[a-zA-Z-]+[a-zA-Z0-9\s]*" required>
+                            <input type="text" name="security_ans" id="sans" title="AlphaNumeric are allowed" pattern='^([A-Za-z0-9]+ )+[A-Za-z0-9]+$|^[A-Za-z0-9]+$' required>
                         </div>
 
                         <div class="clearfix">
@@ -108,14 +108,14 @@ if (isset($_POST['register'])) {
                         </h3>
                         <div>
                             <span>Password<label>*</label></span>
-                            <input type="password" name="pass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must 
+                            <input type="password" name="pass" class="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$" title="Must 
                             contain at least one number and one uppercase and lowercase letter, 
                             and at least 8 to 16 characters" required>
                         </div>
                         <div>
                             <span>Confirm Password<label>*</label></span>
-                            <input type="password" name="repass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must 
-                            contain at least one number and one uppercase and lowercase letter, 
+                            <input type="password" name="repass" class="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$" title="Must 
+                            contain at least one number and one uppercase and lowercase letter and one special character, 
                             and at least 8 to 16 characters" required>
                         </div>
                         

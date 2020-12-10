@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     
     $email = isset($_POST['email'])?$_POST['email']:'';
     $password = md5(isset($_POST['pass'])?$_POST['pass']:'');
-   
+    $_SESSION['check'] = $email;
     $login_data = new User();
     $login_data->login($email, $password, $db->conn);
     // if ($login_data) {
@@ -39,10 +39,9 @@ require "header.php";
                                         </div>
                                       <div>
                                         <span>Password<label>*</label></span>
-                                        <input type="password" name="pass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must 
-                            contain at least one number and one uppercase and lowercase letter, 
-                            and at least 8 to 16 characters">
-                        </div>
+                                        <input type="password" name="pass" class="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" title="Must contain at least one number and one uppercase and lowercase letter, 
+                                        and at least 8 to 16 characters">
+                                </div>
                                       <a class="forgot" href="#">Forgot Your Password?</a>
                                       <input type="submit" value="Login" name="submit">
                                     </form>
