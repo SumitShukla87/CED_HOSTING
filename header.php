@@ -1,3 +1,10 @@
+<?php
+
+require_once "class/Dbcon.php";
+require "class/Product.php";
+$db = new Dbcon();
+$prod = new Product();?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,7 +29,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.chocolat.js"></script>
 <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen">
 <!--lightboxfiles-->
-    
 <script type="text/javascript" src="js/jquery.hoverdir.js"></script>	
                         
 <!--script-->
@@ -56,10 +62,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="linuxhosting.php">Linux hosting</a></li>
-                                        <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
-                                        <li><a href="windowshosting.php">Windows Hosting</a></li>
-                                        <li><a href="cmshosting.php">CMS Hosting</a></li>
+                                    <?php $details =$prod->showSubcategory($db->conn);
+                                    foreach ($details as $key=> $value) {?>
+                                        <li><a href="<?php echo $value['link']; ?>"><?php echo $value['prod_name'];?></a></li>
+                                    <?php } ?>
                                     </ul>			
                                 </li>
                                 <li><a href="pricing.php">Pricing</a></li>
@@ -77,10 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="linuxhosting.php">Linux hosting</a></li>
-                                        <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
-                                        <li><a href="windowshosting.php">Windows Hosting</a></li>
-                                        <li><a href="cmshosting.php">CMS Hosting</a></li>
+                                    <?php $details =$prod->showSubcategory($db->conn);
+                                    foreach ($details as $key=> $value) {?>
+                                        <li><a href="<?php echo $value['link']; ?>"><?php echo $value['prod_name'];?></a></li>
+                                    <?php } ?>
                                     </ul>			
                                 </li>
                                 <li><a href="pricing.php">Pricing</a></li>

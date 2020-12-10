@@ -1,5 +1,5 @@
 <?php 
-require "class/Dbcon.php";
+require_once "class/Dbcon.php";
 require "class/User.php";
 $db = new Dbcon(); ?>
 <?php
