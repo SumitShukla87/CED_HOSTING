@@ -68,7 +68,9 @@ $prod = new Product();?>
     </div>
     <div class="container pt-5 mt-5 pl-5 pr-5 mb-5 pb-5">
         <form action="" method="POST">
+        <hr>
             <h1 class="text-orange text-dark">Create Category</h1>
+            <hr>
         <?php $details =$prod->showCategory($db->conn);
         foreach ($details as $key=> $value) {?>
         <div class="form-group">
@@ -90,10 +92,15 @@ $prod = new Product();?>
             </div>
             <input type="submit" name="add" class="btn btn-outline-danger" value="Add-Sub-category">
         </form>
+
     </div>
+        
     <div class="table-responsive">
     <div>
         <div class="container">
+        <hr>
+            <h1>Details Of Categories</h1>
+        <hr> 
         <table id='example' class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -114,7 +121,12 @@ $prod = new Product();?>
             <form action=""></form>
                 <tr>
                 <td><?php echo $value['id']; ?></td>
-                    <td></td>
+                    <td><?php $serv = $value['prod_parent_id'];;
+                    
+                    if ($serv==1) {
+                        echo "Hosting";
+                    }
+                    ?></td>
                     <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
                     <td> <input type="text" name="name" value="<?php echo $value['prod_name'] ?>"></td>
                     <?php } else { ?>
