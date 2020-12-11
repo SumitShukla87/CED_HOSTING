@@ -76,11 +76,11 @@ if (isset($_POST['register'])) {
                         </div>
                         <div>
                             <span>Mobile<label>*</label></span>
-                            <input type="text" name="mobile" class="mobile"  pattern="^(|[0]){0,1}([7-9]{1})([0-9]{9})$" required>
+                            <input type="text" name="mobile" class="mobile" id="mobile"  pattern="^(|[0]){0,1}([1-9]{1})([0-9]{9})$" required>
                         </div>
                         <div>
                             <span>Email Address<label>*</label></span>
-                            <input type="text" name="email" title="please Enter Email in valid Format" pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$" required>
+                            <input type="text" name="email" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                         </div>
                         <div>
                             <span>Security Question<label>*</label>     
@@ -92,7 +92,7 @@ if (isset($_POST['register'])) {
                             <option value="What was your dream job as a child?">What was your dream job as a child?</option>
                             <option value="What is your favourite teacher's nickname?">What is your favourite teacher's nickname?</option>
                              </select>
-                            <input type="text" name="security_ans" id="sans" title="AlphaNumeric are allowed" pattern='^([A-Za-z0-9]+ )+[A-Za-z0-9]+$|^[A-Za-z0-9]+$' required>
+                            <input type="text" name="security_ans" id="sans" title="Only Alphabetic and AlphaNumeric are allowed" pattern='^[0-9]*[A-Za-z]+[0-9]*$' required>
                         </div>
 
                         <div class="clearfix">

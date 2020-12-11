@@ -1,34 +1,25 @@
 <?php
 /**
-*  File Doc Comment
-*
-* PHP version 7
-*
-* @category Create_Category_Page
-* @package  Ced-Hosting
-* @author   Sumit Shukla <shuklasumit316@gmail.com>
-* @license  Personal use License
-* @link     https://localhost/
-*/
-session_start();
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category Admin_Dashboard
+ * @package  Ced-Hosting
+ * @author   Sumit Shukla <shuklasumit316@gmail.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
+
+    session_start();
 if ($_SESSION['admin']== "") {
     header("location:../login.php");
 }
-require "sidebar.php";
-require "../class/Dbcon.php";
-require "../class/Product.php";
-$db = new Dbcon();
-$prod = new Product();?>
-<div class="main-content" id="panel">
-    <?php
-    if (isset($_POST['add'])) {
-        $cat_id = strtolower(isset($_POST['category'])?$_POST['category']:'');
-        $name = isset($_POST['sub_category'])?$_POST['sub_category']:'';
-        $date = date("Y-m-d h:i:s");
-        $link = isset($_POST['link'])?$_POST['link']:'';
-        $prod->addSubcategory($cat_id, $name, $link, $date, $db->conn);
-    }
-    ?>
+?>
+<?php require "sidebar.php";?>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -264,161 +255,174 @@ $prod = new Product();?>
       </div>
     </nav>
     <!-- Header -->
+    <!-- Header -->
     <div class="header bg-primary pb-6">
-        <div class="container-fluid">
-            <div class="header-body">
-                <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">
-                            Default
-                        </h6>
-                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item">
-                                    <a href="#"><i class="fas fa-home">
-                                        </i></a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="dashboard.php">Dashboards</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Create Category
-                                </li>
-                            </ol>
-
-                            
-                            
-                        </nav>
-                    </div>
-                    <div class="col-lg-6 col-5 text-right">
-                        <a href="#" class="btn btn-sm btn-neutral">New</a>
-                        <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                    </div>
-                </div>
-                <!-- -->
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                </ol>
+              </nav>
             </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div>
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                      <span class="h2 font-weight-bold mb-0">924</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                      <span class="h2 font-weight-bold mb-0">49,65%</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+    <!-- Page content -->
     <div class="container-fluid mt--6">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header bg-transparent">
-                        <form action="" method="POST">
-                            <hr>
-                            <h1 class="text-orange text-dark">
-                                Create Category
-                            </h1>
-                            <hr>
-                            <?php $details =$prod->showCategory($db->conn);
-                            foreach ($details as $key=> $value) {?>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Choose Category</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="category">
-                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['prod_name'] ?></option>
-                                </select>
-                            </div>
-                            <?php } ?>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Add Sub-Category</label>
-                                <input class="form-control" type="text" name="sub_category" required placeholder="Enter Sub-Category Here" id="example-text-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Link Address</label>
-                                <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="example-text-input">
-                            </div>
-                            <input type="submit" name="add" class="btn btn-outline-danger" value="Add-Sub-category">
-                        </form>
-                    </div>
-                    <div class="table-responsive">
-                        <div>
-                            <div class="container">
-                                <hr>
-                                <h1>
-                                    Details Of Categories
-                                </h1>
-                                <hr>
-                                <table id='example' class="table table-bordered">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">
-                                                Id
-                                            </th>
-                                            <th scope="col" class="sort">
-                                                Category
-                                            </th>
-                                            <th scope="col">
-                                                Sub-Category
-                                            </th>
-                                            <th scope="col">
-                                                Visible/Hidden
-                                            </th>
-                                            <th scope="col">
-                                                Launch Date
-                                            </th>
-                                            <th scope="col">
-                                                Edit
-                                            </th>
-                                            <th scope="col">
-                                                Delete
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="tbody-dark" >
-                                        <?php $details =$prod->showSubcategory($db->conn);
-                                        foreach ($details as $key=> $value) {?>
-                                        <form action="">
-                                        </form>
-                                        <tr>
-                                            <td>
-                                                <?php echo $value['id']; ?></td>
-                                            <td>
-                                                <?php $serv = $value['prod_parent_id'];;
-                                                if ($serv==1) {
-                                                    echo "Hosting";
-                                                }
-                                                ?></td>
-                                            <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
-                                            <td>
-                                                <input type="text" name="name" value="
-                                            <?php echo $value['prod_name'] ?>">
-                                            </td>
-                                            <?php } else { ?>
-                                            <td>
-                                                <?php echo $value['prod_name']?></td>
-                                            <?php }?>
-                                            <td>
-                                                <?php
-                                                    $status = $value['prod_available'];
-                                                if ($status == 1) {
-                                                    echo "Visible";
-                                                } else {
-                                                    echo "Hidden";
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $value['prod_launch_date'];?>
-                                            </td>
-                                            <td>
-                                                <input type="hidden" name="id" value="
-                                                    <?php echo $value['id']; ?> ">
-                                                <input type="submit" class="btn-danger" name="edit" value="Edit">
-                                            </td>
-                                            <td>
-                                                <button class="btn-success"><a href="#!" class="btn-success">Delete</a></button>
-                                            </td>
-                                        </tr>
-                                        <?php }?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-header bg-transparent">
+            <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold"><?php echo$_SESSION['admin'];?></span>
+                  </div>
                 </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>My profile</span>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Settings</span>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-calendar-grid-58"></i>
+                  <span>Activity</span>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-support-16"></i>
+                  <span>Support</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="logout.php" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+                
             </div>
+           
+          </div>
         </div>
-    </div>
-</div>
-</div>
-<?php require "footer.php";?>
+        
+      </div>
+      
+      <!-- Footer -->
+      <?php require "footer.php";?>
+      
