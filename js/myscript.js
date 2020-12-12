@@ -1,8 +1,12 @@
+
 $(document).ready(function(){
+    
     $('.mobile').keyup(function () {
     this.value = this.value.replace(/[^0-9]/g,'');
     });
+
     $("#mobile").on("keyup  paste", function() {
+        
         var mobile = document.getElementById("mobile").value;   
         mobile = mobile.replace(/ {1,}/g,'');
         var y=0;
@@ -79,10 +83,11 @@ $(document).ready(function(){
             }
         }
     });
+    
 });
-function removeSpaces(string) {
-    return string.split(' ').join('');
-   }
+// function removeSpaces(string) {
+//     return string.split(' ').join('');
+//    }
 
 
 
@@ -96,3 +101,7 @@ function removeSpaces(string) {
     jQuery(function($) {
         $(".swipebox").swipebox();
     });
+
+
+
+    

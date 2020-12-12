@@ -3673,3 +3673,6 @@ input[type="number"] {
 .otp-page{
     height: 400px;
 }
+.error {
+    color: #ff0000;
+  }

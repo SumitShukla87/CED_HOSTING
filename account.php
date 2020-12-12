@@ -72,7 +72,7 @@ if (isset($_POST['register'])) {
                         </h3>
                         <div>
                             <span>Name<label>*</label></span>
-                            <input type="text" name="name" class="nameclass" id="fname"  title="Please Enter name in valid Format" pattern="^[a-zA-Z ]*$" required>
+                            <input type="text" name="name" class="nameclass" id="fname"   title="Please Enter name in valid Format"  required>
                         </div>
                         <div>
                             <span>Mobile<label>*</label></span>
@@ -80,7 +80,7 @@ if (isset($_POST['register'])) {
                         </div>
                         <div>
                             <span>Email Address<label>*</label></span>
-                            <input type="text" name="email" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            <input type="text" name="email" class="password" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                         </div>
                         <div>
                             <span>Security Question<label>*</label>     
@@ -126,7 +126,7 @@ if (isset($_POST['register'])) {
                 </div>
                 <div class="register-but">
                     
-                        <input type="submit" value="submit" name="register">
+                        <input type="submit" value="submit" id="re1g " name="register">
                         <div class="clearfix">
                         </div>
                     </form>
@@ -138,3 +138,21 @@ if (isset($_POST['register'])) {
 </div>
 <!-- login -->
 <?php require "footer.php"; ?>
+<script>
+    $(document).ready(function(){
+        $("#fname").on("blur",function(){
+            var  name=$("#fname").val()
+            if(name==0){
+                $("#fname").css("border","1px solid red");
+                $(".error").html(" Name Is Requird!!");
+                // $("#product_sku").css({"border-color":"red"});
+                $(".error").show(1000);
+                $(".error").fadeOut(3000);
+
+                return false;
+            }
+        })
+    })
+    var fname=document.getElementById("fname").value;
+    console.log(fname)
+</script>

@@ -61,7 +61,7 @@
               <ul class="dropdown-menu">
               <li><a href="addcategory.php" class="nav-link">Create Category</a></li>
               <li><a href="addproduct.php" class="nav-link">Add Product</a></li>
-              <li><a href="#"class="nav-link">View Products</a></li>
+              <li><a href="viewproduct.php"class="nav-link">View Products</a></li>
               <li><a href="#" class="nav-link">Create New Offers</a></li>
               </ul>
             </li>

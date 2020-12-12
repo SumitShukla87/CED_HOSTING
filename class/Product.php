@@ -87,4 +87,35 @@ class Product
             echo'<script>alert("'.$conn->error.'")</script>';
         }
     }
+    /**
+     * Function to Show product on Viewproduct.php page
+     */
+    public function showProduct($conn)
+    {
+        $a=array();
+         $sql = "SELECT * FROM `tbl_product` INNER JOIN `tbl_product_description` ON `tbl_product_description`.`prod_id` = `tbl_product`.`id` WHERE `prod_available`=1";
+        $result =$conn->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            array_push($a, $row);
+        }
+        return $a;
+
+    } 
+    /**
+     * Function to Print Category Name in viewproduct table
+     */
+    public function showCategoryname($id,$conn)
+    {
+        $a=array();
+        $sql = "SELECT `prod_name` from `tbl_product` Where `id`='".$id."'";
+        $result =$conn->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            array_push($a, $row);
+        }
+        return $a;
+
+    }
 }
+
+// SELECT * FROM `tbl_product` INNER JOIN `tbl_product_description` ON `tbl_product_description`.`prod_id` = `tbl_product`.`id`
+    
