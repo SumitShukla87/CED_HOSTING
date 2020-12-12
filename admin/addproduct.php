@@ -25,13 +25,28 @@ $prod = new Product();?>
     <?php
     if (isset($_POST['add'])) {
         
-        $cat_id = strtolower(isset($_POST['category'])?$_POST['category']:'');
-        $name = isset($_POST['sub_category'])?$_POST['sub_category']:'';
-
-        $date = date("Y-m-d h:i:s");
-        $link = isset($_POST['link'])?$_POST['link']:'';
-        $prod->addSubcategory($cat_id, $name, $link, $date, $db->conn);
-    
+        $cat_id = isset($_POST['category'])?$_POST['category']:'';
+        $name = isset($_POST['product_name'])?$_POST['product_name']:'';
+        $url = isset($_POST['url'])?$_POST['url']:'';
+        $mon_price = isset($_POST['mprice'])?$_POST['mprice']:'';
+        $annual_price = isset($_POST['aprice'])?$_POST['aprice']:'';
+        $sku = isset($_POST['sku'])?$_POST['sku']:'';
+        $webspace = isset($_POST['webspace'])?$_POST['webspace']:'';
+        $bandwidth = isset($_POST['gband_width'])?$_POST['gband_width']:'';
+        $domain = isset($_POST['domain'])?$_POST['domain']:'';
+        $launguage = isset($_POST['launguage'])?$_POST['launguage']:'';
+        $mail_box = isset($_POST['mail_box'])?$_POST['mail_box']:'';
+      
+        $features = array('webspace'=>$webspace,
+        'bandwidth' => $bandwidth,
+        'domain'=> $domain,
+        'launguage' => $launguage,
+        'mail_box' => $mail_box  
+      
+        );
+        $prod_features = json_encode($features);
+        
+        $prod->addproduct($cat_id, $name, $url, $prod_features, $mon_price, $annual_price, $sku, $db->conn);
     }
 ?>
 <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
@@ -235,7 +250,7 @@ $prod = new Product();?>
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Page Url</label>
-                <input class="form-control" type="text" name="url" required  id="example-text-input">
+                <input class="form-control" type="text" name="url"  id="example-text-input">
             </div>
            <hr>
             <h3>Product Description</h3>
@@ -258,7 +273,7 @@ $prod = new Product();?>
            <hr>
            <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Web Space In GB</label>
-                <input class="form-control" type="text" name="gspace" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
+                <input class="form-control" type="text" name="webspace" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Bandwidth In GB</label>
@@ -266,7 +281,7 @@ $prod = new Product();?>
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Free Domain</label>
-                <input class="form-control" type="text" name="gband_width" placeholder="Enter 0 if no domain is avilable" required  id="example-text-input">
+                <input class="form-control" type="text" name="domain" placeholder="Enter 0 if no domain is avilable" required  id="example-text-input">
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Launguage/Technically Support</label>

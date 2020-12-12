@@ -66,4 +66,25 @@ class Product
         return $a;
 
     }
+    /**
+     * Function to add products on addproduct.php page
+     */
+    public function addproduct($cat_id, $name, $url, $prod_features, $mon_price, $annual_price, $sku, $conn)
+    {
+
+        $sql = "INSERT INTO `tbl_product`(`prod_parent_id`,`prod_name`,`link`,`prod_available`,`prod_launch_date`)
+         VALUES ('".$cat_id."','".$name."','".$url."',1,NOW())";
+        if ($conn->query($sql) === true) {
+            $last_id = $conn->insert_id;
+            $sql1 = "INSERT INTO `tbl_product_description`(`prod_id`,`description`,`mon_price`,`annual_price`,`sku`)
+         VALUES ('".$last_id."','".$prod_features."','".$mon_price."','".$annual_price."','".$sku."')";
+            if ($conn->query($sql1) === true) {
+                echo'<script>alert("Product added Successfully!!")</script>';
+
+            }
+
+        } else {
+            echo'<script>alert("'.$conn->error.'")</script>';
+        }
+    }
 }
