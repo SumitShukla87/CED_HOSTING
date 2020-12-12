@@ -138,7 +138,7 @@ $prod = new Product();?>
                         <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" class="avatar rounded-circle">
                       </div>
                       <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex justify-content-between align-items-center">
                           <div>
                             <h4 class="mb-0 text-sm">John Snow</h4>
                           </div>

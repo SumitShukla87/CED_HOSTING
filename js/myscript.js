@@ -1,75 +1,75 @@
 
-$(document).ready(function(){
-    
+$(document).ready(function () {
+
     $('.mobile').keyup(function () {
-    this.value = this.value.replace(/[^0-9]/g,'');
+        this.value = this.value.replace(/[^0-9]/g, '');
     });
 
-    $("#mobile").on("keyup  paste", function() {
-        
-        var mobile = document.getElementById("mobile").value;   
-        mobile = mobile.replace(/ {1,}/g,'');
-        var y=0;
+    $("#mobile").on("keyup  paste", function () {
+
+        var mobile = document.getElementById("mobile").value;
+        mobile = mobile.replace(/ {1,}/g, '');
+        var y = 0;
         var in1 = mobile.charAt(0);
         var len = mobile.length;
-        var in2=mobile.charAt(1);
+        var in2 = mobile.charAt(1);
         console.log(in1, in2);
-        if(len>10 && in1!="0"){
+        if (len > 10 && in1 != "0") {
             alert("Mobile Number Can't be more than 10");
-            document.getElementById("mobile").value="";
+            document.getElementById("mobile").value = "";
         }
-        else if(in1=="0" && in2=="0"){
+        else if (in1 == "0" && in2 == "0") {
             alert("Invaild Number");
-            document.getElementById("mobile").value="";
+            document.getElementById("mobile").value = "";
         }
-        else if(len==11){
-            for(i=1;i<11;i++){
+        else if (len == 11) {
+            for (i = 1; i < 11; i++) {
                 var ch = mobile.charAt(i);
-                if(i!=10){
-                    var chn = mobile.charAt(i+1);
+                if (i != 10) {
+                    var chn = mobile.charAt(i + 1);
                 }
-                if(ch==chn){
+                if (ch == chn) {
                     y++;
                 }
             }
-            if(y==10){
-            alert("All numbers cannot be similar");
-            document.getElementById("mobile").value="";
+            if (y == 10) {
+                alert("All numbers cannot be similar");
+                document.getElementById("mobile").value = "";
             }
         }
-        else if(len==10){
-            for(i=0;i<10;i++){
+        else if (len == 10) {
+            for (i = 0; i < 10; i++) {
                 var ch = mobile.charAt(i);
-                if(i!=9){
-                    var chn = mobile.charAt(i+1);
-                    if(ch==chn){
-                    y++;
+                if (i != 9) {
+                    var chn = mobile.charAt(i + 1);
+                    if (ch == chn) {
+                        y++;
+                    }
                 }
-                }
-                
+
             }
-            if(y==9){
-            alert("All numbers cannot be similar");
-            document.getElementById("mobile").value="";
+            if (y == 9) {
+                alert("All numbers cannot be similar");
+                document.getElementById("mobile").value = "";
             }
         }
-        
-    }); 
+
+    });
     // $(document).on('keypress','.mobile',function(e){
     //     if($(e.target).prop('value').length>=10){
     //     if(e.keyCode!=32)
     //     {return false} 
     //     }
     // });
-    $("#fname").keyup(function() {
-       
-         $(this).val($(this).val().replace(/  +/g, ' '));
+    $("#fname").keyup(function () {
+
+        $(this).val($(this).val().replace(/  +/g, ' '));
     });
-    $("#sans").keyup(function() {
+    $("#sans").keyup(function () {
         $(this).val($(this).val().replace(/  +/g, ' '));
     });
 
-    $(".password").keyup(function() {
+    $(".password").keyup(function () {
         $(this).val($(this).val().replace(/\s/g, ""));
     });
 
@@ -83,7 +83,21 @@ $(document).ready(function(){
             }
         }
     });
-    
+
+    $('.test1').keyup(function () {
+        this.value = this.value.replace(/[^0-9\.]/g,'');
+    });
+
+
+
+
+
+
+
+
+
+
+
 });
 // function removeSpaces(string) {
 //     return string.split(' ').join('');
@@ -91,17 +105,16 @@ $(document).ready(function(){
 
 
 
-   // Script of the seprated Header files
-   $(function() {
-	$('.team a').Chocolat();
-    });
-    $(function() {		
-        $(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
-    });    
-    jQuery(function($) {
-        $(".swipebox").swipebox();
-    });
+// Script of the seprated Header files
+// $(function () {
+//     $('.team a').Chocolat();
+// });
+// $(function () {
+//     $(' #da-thumbs > li ').each(function () { $(this).hoverdir(); });
+// });
+// jQuery(function ($) {
+//     $(".swipebox").swipebox();
+// });
 
 
 
-    

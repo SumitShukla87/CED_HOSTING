@@ -115,7 +115,4 @@ class Product
         return $a;
 
     }
-}
-
-// SELECT * FROM `tbl_product` INNER JOIN `tbl_product_description` ON `tbl_product_description`.`prod_id` = `tbl_product`.`id`
-    
+}    

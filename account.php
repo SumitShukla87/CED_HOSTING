@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
     <div class="main-1">
         <div class="container">
             <div class="register">
-                <form action="" method="POST">
+                <form action="" method="POST" id="reg_form">
                     <div class="register-top-grid">
                         <h3>
                             personal information
@@ -73,14 +73,17 @@ if (isset($_POST['register'])) {
                         <div>
                             <span>Name<label>*</label></span>
                             <input type="text" name="name" class="nameclass" id="fname"   title="Please Enter name in valid Format"  required>
+                            <span class="error"><p id="name_error"></p></span>
                         </div>
                         <div>
                             <span>Mobile<label>*</label></span>
                             <input type="text" name="mobile" class="mobile" id="mobile"  pattern="^(|[0]){0,1}([1-9]{1})([0-9]{9})$" required>
+                            <span class="error"><p id="telephone_error"></p></span>
                         </div>
                         <div>
                             <span>Email Address<label>*</label></span>
-                            <input type="text" name="email" class="password" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            <input type="text" name="email" class="password" id="email" title="please Enter Email in valid Format" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            <span class="error"><p id="email_error"></p></span>
                         </div>
                         <div>
                             <span>Security Question<label>*</label>     
@@ -138,7 +141,7 @@ if (isset($_POST['register'])) {
 </div>
 <!-- login -->
 <?php require "footer.php"; ?>
-<script>
+<!-- <script>
     $(document).ready(function(){
         $("#fname").on("blur",function(){
             var  name=$("#fname").val()
@@ -155,4 +158,4 @@ if (isset($_POST['register'])) {
     })
     var fname=document.getElementById("fname").value;
     console.log(fname)
-</script>
+</script> -->
