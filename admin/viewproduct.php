@@ -20,6 +20,33 @@ require "../class/Product.php";
 $db = new Dbcon();
 $prod = new Product();?>
 <div class="main-content" id="panel">
+<?php
+if (isset($_POST['update'])) {
+        
+        $id = isset($_POST['id'])?$_POST['id']:'';
+        $name = isset($_POST['name'])?$_POST['name']:'';
+        $mon_price = isset($_POST['mprice'])?$_POST['mprice']:'';
+        $annual_price = isset($_POST['aprice'])?$_POST['aprice']:'';
+        $sku = isset($_POST['sku'])?$_POST['sku']:'';
+        $webspace = isset($_POST['webspace'])?$_POST['webspace']:'';
+        $bandwidth = isset($_POST['bandwidth'])?$_POST['bandwidth']:'';
+        $domain = isset($_POST['domain'])?$_POST['domain']:'';
+        $launguage = isset($_POST['launguage'])?$_POST['launguage']:'';
+        $mail_box = isset($_POST['mail_box'])?$_POST['mail_box']:'';
+
+      
+        $features = array('webspace'=>$webspace,
+        'bandwidth' => $bandwidth,
+        'domain'=> $domain,
+        'launguage' => $launguage,
+        'mail_box' => $mail_box  
+      
+        );
+        $prod_features = json_encode($features);
+        
+        $prod->updateProduct($id, $name,  $prod_features, $mon_price, $annual_price, $sku, $db->conn);
+}
+?>
     
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
         <div class="container-fluid">
@@ -255,6 +282,9 @@ $prod = new Product();?>
                                                 Free Domain</th>
                                                 <th>Launguage</th>
                                                 <th>Mail-Box</th>
+                                                <th>Monthly-Price</th>
+                                                <th>Annual-Box</th>
+                                                <th>SKU</th>
                                                 <th scope="col">
                                                     Edit
                                                 </th>
@@ -266,8 +296,9 @@ $prod = new Product();?>
                                         <tbody class="tbody-dark" >
                                             <?php $details =$prod->showProduct($db->conn);
                                             foreach ($details as $key=> $value) {?>
-                                            <form action="">
+                                        
                                             <tr>
+                                            <form action="" method="POST">
                                                 <td>
                                                     <?php echo $value['id']; ?></td>
                                               
@@ -278,11 +309,10 @@ $prod = new Product();?>
                                                     }
                                                     
                                                     ?>
-                                                    </td>
+                                                </td>
                                                 <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
                                                 <td>
-                                                    <input type="text" name="name" value="
-                                                        <?php echo $value['prod_name'] ?>">
+                                                    <input type="text" name="name" value="<?php echo $value['prod_name'];?>">
                                                 </td>
                                                 <?php } else { ?>
                                                 <td>
@@ -302,23 +332,118 @@ $prod = new Product();?>
                                                     <?php echo $value['prod_launch_date'];?>
                                                 </td>
                                                     <?php $desc = $value['description'];
-                                                     $desc_decode = json_decode($desc);
-
-                                                       
-                                                    
-                                                    foreach ($desc_decode as $k=> $v) {?>
-                                                    <td><?php echo $v; ?></td>
+                                                    $desc_decode = json_decode($desc);
+                                                    $webspace=$desc_decode->webspace;
+                                                    $bandwidth = $desc_decode->bandwidth;
+                                                    $domain = $desc_decode->domain;
+                                                    $launguage = $desc_decode->launguage;
+                                                    $mail_box = $desc_decode->mail_box;
+                                                    // foreach ($desc_decode as $k=> $v) {?>
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="webspace" value="<?php echo $webspace; ?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $webspace; ?>
+                                                </td>
                                                     <?php }?>
+
+
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
                                                 <td>
-                                                    <input type="hidden" name="id" value="
-                                                        <?php echo $value['id']; ?> ">
-                                                    <input type="submit" class="btn-danger" name="edit" value="Edit">
+                                                    <input type="text" name="bandwidth" value="<?php echo $bandwidth;?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $bandwidth;?>
+                                                </td>
+                                                    <?php }?>
+
+                                                        <!--  -->
+                                                        <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="domain" value="<?php echo $domain;?>">
+                                                </td>
+                                                        <?php } else { ?>
+                                                <td>
+                                                <?php echo $domain;?></td>
+                                                        <?php }?>
+                                                    <!--  -->
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="launguage" value="<?php echo $launguage;?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $launguage;?>
+                                                </td>
+                                                    <?php }?>
+                                                    <!--  -->
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="mail_box" value="<?php echo $mail_box;?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $mail_box;?>
+                                                </td>
+                                                    <?php }?>  
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="mprice" value="<?php echo $value['mon_price'];?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $value['mon_price'];?>
+                                                </td>
+                                                    <?php }?>    
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="aprice" value="<?php echo $value['annual_price'];?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $value['annual_price'];?>
+                                                </td>
+                                                    <?php }?>  
+
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) {?>
+                                                <td>
+                                                    <input type="text" name="sku" value="<?php echo $value['sku'];?>">
+                                                </td>
+                                                    <?php } else { ?>
+                                                <td>
+                                                <?php echo $value['sku'];?>
+                                                </td>
+                                                    <?php }?>      
+
+
+
+
+
+                                                      <!-- buttons  -->
+                                                <td>   
+                                                    <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                                            
+                                                    <input type="hidden" name="id" value="<?php echo $value['id'];?>">                                            
+                                                    <input type="submit"  name="update" Value="Update" class="btn btn-outline-warning" onclick="return  confirm('Do You Want to Update The Product??')"></td>
+                                                
+                                                    <?php } else {?>
+                                              
+                                                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                                    <input type="submit" class="btn btn-outline-danger" name="edit" value="Edit" onclick="return  confirm('Do You Want to Edit The Product??')">
+                                               
+                                                    <?php }?>    
+                                            
+                                                    
                                                 </td>
                                                 <td>
-                                                    <a href="#!" class="btn-success">Delete</a>
+                                                    <a href="#!" class="btn btn-outline-primary" onclick="return  confirm('Do You Want to Delete The Product??')">Delete</a>
                                                 </td>
+                                                </form>
                                             </tr>
-                                            </form>
+                                           
                                             <?php }?>
                                         </tbody>
                                     </table>

@@ -129,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 foreach ($details as $key=> $value) {?>
                                                 <li>
                                                     <a href="
-                                                        <?php echo $value['link']; ?>"><?php echo $value['prod_name'];?></a>
+                                                        <?php echo $value['html']; ?>"><?php echo $value['prod_name'];?></a>
                                                 </li>
                                                 <?php } ?>
                                             </ul>

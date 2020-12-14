@@ -29,6 +29,18 @@ $prod = new Product();?>
         $prod->addSubcategory($cat_id, $name, $link, $date, $db->conn);
     }
     ?>
+    <?php
+    if (isset($_POST['block'])) {
+        $id = isset($_POST['id'])?$_POST['id']:'';
+        echo $id;
+        $prod->hide($id, $db->conn);
+    }
+    if (isset($_POST['unblock'])) {
+        $id = isset($_POST['id'])?$_POST['id']:'';
+        echo $id;
+        $prod->show($id, $db->conn);
+    }
+    ?>
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -320,12 +332,12 @@ $prod = new Product();?>
                             </div>
                             <?php } ?>
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Add Sub-Category</label>
-                                <input class="form-control" type="text" name="sub_category" required placeholder="Enter Sub-Category Here" id="example-text-input">
+                                <label for="subcat" class="form-control-label">Add Sub-Category</label>
+                                <input class="form-control" type="text" name="sub_category" required placeholder="Enter Sub-Category Here" id="subcat">
                             </div>
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Link Address</label>
-                                <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="example-text-input">
+                                <label for="linkk" class="form-control-label">Link Address</label>
+                                <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="linkk">
                             </div>
                             <input type="submit" name="add" class="btn btn-outline-danger" value="Add-Sub-category">
                         </form>
@@ -351,7 +363,10 @@ $prod = new Product();?>
                                                 Sub-Category
                                             </th>
                                             <th scope="col">
-                                                Visible/Hidden
+                                                Link
+                                            </th>
+                                            <th scope="col">
+                                                Visible/Not Visible
                                             </th>
                                             <th scope="col">
                                                 Launch Date
@@ -362,14 +377,20 @@ $prod = new Product();?>
                                             <th scope="col">
                                                 Delete
                                             </th>
+                                            <?php if (isset($_POST['edit'])) { ?>
+                                            <th>
+                                              Show/Hide Category
+                                            </th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody class="tbody-dark" >
-                                        <?php $details =$prod->showSubcategory($db->conn);
+                                        <?php $details =$prod->showAllcategory($db->conn);
                                         foreach ($details as $key=> $value) {?>
-                                        <form action="">
-                                        </form>
+                                        
+                                        
                                         <tr>
+                                        <form action="" method="POST">
                                             <td>
                                                 <?php echo $value['id']; ?></td>
                                             <td>
@@ -380,34 +401,58 @@ $prod = new Product();?>
                                                 ?></td>
                                             <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
                                             <td>
-                                                <input type="text" name="name" value="
-                                            <?php echo $value['prod_name'] ?>">
+                                                <input type="text" name="name" value="<?php echo $value['prod_name'] ?>">
                                             </td>
                                             <?php } else { ?>
                                             <td>
                                                 <?php echo $value['prod_name']?></td>
+                                            <?php }?>
+                                            <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                                            <td>
+                                                <input type="text" name="link" value="<?php echo $value['html'] ?>">
+                                            </td>
+                                            <?php } else { ?>
+                                            <td>
+                                                <?php echo $value['html']?></td>
                                             <?php }?>
                                             <td>
                                                 <?php
                                                     $status = $value['prod_available'];
                                                 if ($status == 1) {
                                                     echo "Visible";
-                                                } else {
+                                                } elseif ($status==0) {
                                                     echo "Hidden";
                                                 }
                                                 ?>
                                             </td>
                                             <td>
                                                 <?php echo $value['prod_launch_date'];?>
-                                            </td>
+                                            </td>                                           
                                             <td>
-                                                <input type="hidden" name="id" value="
-                                                    <?php echo $value['id']; ?> ">
-                                                <input type="submit" class="btn-danger" name="edit" value="Edit">
-                                            </td>
+                                            <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                                            
+                                            <input type="hidden" name="id" value="<?php echo $value['id'];?>">                                            
+                                            <input type="submit"  name="update" Value="Update" class="btn btn-outline-warning" onclick="return  confirm('Do You Want to Update The Category??')"></td>
+                                          
+                                            <?php } else {?>
+                                              
+                                              <input type="hidden" name="id" value="<?php echo $value['id'];?>">
+                                              <input type="submit" class="btn btn-outline-danger" name="edit" value="Edit">
+                                          
+                                            <?php }?>                                            
                                             <td>
-                                                <button class="btn-success"><a href="#!" class="btn-success">Delete</a></button>
+                                          <a href="#!" class="btn btn-outline-success">Delete</a>
                                             </td>
+                                            <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
+                                                <?php if ($status==0) {?>
+                                                    <td><input type="submit" name="unblock"  class="btn btn-outline-dark" Value="Show Category" onclick="return  confirm('Do You Want to Show The Category??')"></td>
+
+                                                <?php  } elseif ($status==1) { ?>
+                                                        <td><input type="submit" name="block"  class="btn btn-outline-dark" Value="Hide Category" onclick="return  confirm('Do You Want to Hide The Category??')"></td>
+
+                                                <?php }
+                                                } ?>
+                                            </form>
                                         </tr>
                                         <?php }?>
                                     </tbody>
