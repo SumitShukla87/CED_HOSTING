@@ -446,9 +446,9 @@ $prod = new Product();?>
                                               <input type="hidden" name="id" value="<?php echo $value['id'];?>">
                                               <input type="submit" class="btn btn-outline-danger" name="edit" value="Edit">
                                           
-                                            <?php }?>                                            
+                                            <?php }?>
                                             <td>
-                                          <a href="#!" class="btn btn-outline-success">Delete</a>
+                                          <a href="deletecategory.php?id=<?php  echo $value['id']; ?>" class="btn btn-outline-success" onclick="return  confirm('Do You Want to Delete The Category??')">Delete</a>
                                             </td>
                                             <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
                                                 <?php if ($status==0) {?>

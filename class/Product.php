@@ -191,5 +191,31 @@ class Product
         }
         
     }
-    
+    /**
+     * Function to delete the category on the create category page
+     */
+    public function delcat($id, $conn)
+    {
+        $sql = "DELETE FROM `tbl_product` WHERE `id`='".$id."'";
+        if ($conn->query($sql) === true) {
+            echo"<script>alert('Category Deleted Successfully');
+        window.location.href='addcategory.php'</script>";
+        } else {
+            echo $conn->error;
+        }
+    }
+     /**
+     * Function to delete the category on the create category page
+     */
+    public function delProduct($id, $conn)
+    {
+        $sql = "DELETE FROM `tbl_product` WHERE `id`='".$id."'";
+        if ($conn->query($sql) === true) {
+            echo"<script>alert('Product Deleted Successfully');
+        window.location.href='viewproduct.php'</script>";
+        } else {
+            echo $conn->error;
+        }
+    }
+       
 }    

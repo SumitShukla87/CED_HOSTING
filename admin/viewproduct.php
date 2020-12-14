@@ -439,7 +439,7 @@ if (isset($_POST['update'])) {
                                                     
                                                 </td>
                                                 <td>
-                                                    <a href="#!" class="btn btn-outline-primary" onclick="return  confirm('Do You Want to Delete The Product??')">Delete</a>
+                                                    <a href="deleteproduct.php?id=<?php  echo $value['id']; ?>" class="btn btn-outline-primary" onclick="return  confirm('Do You Want to Delete The Product??')">Delete</a>
                                                 </td>
                                                 </form>
                                             </tr>
