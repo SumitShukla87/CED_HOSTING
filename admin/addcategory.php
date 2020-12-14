@@ -40,6 +40,13 @@ $prod = new Product();?>
         echo $id;
         $prod->show($id, $db->conn);
     }
+
+    if (isset($_POST['update'])) {
+        $id = strtolower(isset($_POST['id'])?$_POST['id']:'');
+        $name = isset($_POST['name'])?$_POST['name']:'';
+        $link = isset($_POST['link'])?$_POST['link']:'';
+        $prod->updateCategory($id, $name, $link, $db->conn);
+    }
     ?>
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">

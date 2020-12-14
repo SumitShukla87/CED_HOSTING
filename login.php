@@ -4,6 +4,9 @@ require "class/User.php";
 $db = new Dbcon(); ?>
 <?php
 session_start();
+if (isset($_SESSION['userdata']) || isset($_SESSION['admin'])) {
+    header("location:logout.php");
+}
 if (isset($_POST['submit'])) {
     
     $email = isset($_POST['email'])?$_POST['email']:'';
@@ -15,7 +18,10 @@ if (isset($_POST['submit'])) {
     //     header("location:index.php");
     // }
 }
+
 require "header.php";
+
+
 ?>
     <!---header--->
         <!---login--->

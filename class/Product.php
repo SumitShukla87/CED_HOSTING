@@ -170,12 +170,26 @@ class Product
             if ($conn->query($sql1) === true) {
                 echo"<script>alert('Product Updated Successfully');
             window.location.href='viewproduct.php'</script>";
+            } else {
+                echo $conn->error;
             }
         } else {
             echo $conn->error;
         }
-
-
     }
-    /**Fucntion to update the categor */
+    /**
+     *     *Function to update the category 
+     */
+    public function updateCategory($id, $name, $link, $conn)
+    {
+        $sql1 = "UPDATE  `tbl_product` SET `prod_name`='".$name."', `html`='".$link."' WHERE `id`='".$id."'";
+        if ($conn->query($sql1) === true) {
+            echo"<script>alert('Category Updated Successfully');
+        window.location.href='addcategory.php'</script>";
+        } else {
+            echo $conn->error;
+        }
+        
+    }
+    
 }    
