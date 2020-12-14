@@ -118,3 +118,189 @@ $(document).ready(function () {
 
 
 
+
+
+$(document).ready(function(){
+    $('.inputVal').keyup(function(){
+    var val = $(this).val();
+    if(isNaN(val)){
+    val = val.replace(/[^0-9\.]/g,'');
+    if(val.split('.').length>2)
+    val = val.replace(/\.+$/,"");
+    }
+    $(this).val(val);
+    });
+    
+    // $('select').blur(function(){
+    // var val = $(this).val();
+    // if(val==""){
+    // $('#eb1').html("*Required");
+    // $(this).focus();
+    // $(this).css("border", "2px solid red");
+    // }
+    // else {
+    // $(this).css("border", "2px solid green");
+    // $('#eb1').html("");
+    // }
+    // });
+    
+    $('#pname').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e1').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    if(val){
+    var pat = /^\d*?[a-zA-Z][a-zA-Z0-9\-]{1,}\d*$/i.test($("#pname").val());
+    if(!pat){
+    $('#e1').html("*Please Enter In Valid Format");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e1').html("");
+    }
+    }
+    });
+    
+    $('#mprice').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e2').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e2').html("");
+    }
+    });
+    
+    $('#aprice').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e3').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e3').html("");
+    }
+    });
+    
+    $('#sku').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e4').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    if(val){
+    var pat = /^\d?[a-zA-Z0-9#-]+?[a-zA-Z0-9][a-zA-Z0-9\-#]{1,}\d*$/i.test($("#sku").val());
+    if(!pat){
+    $('#e4').html("Only #,- allowed. Must contain 2 non-special characters !!");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e4').html("");
+    }
+    }
+    });
+    
+    $('#webspace').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e5').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e5').html("");
+    }
+    });
+    
+    $('#bandwidth').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e6').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e6').html("");
+    }
+    });
+    
+    $('#fdomain').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e7').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    if(val){
+    var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#fdomain").val());
+    if(!pat){
+    $('#e7').html("Only alphabetic/numeric values allowed.");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e7').html("");
+    }
+    }
+    });
+    
+    $('#launguage').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e8').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    if(val){
+    var pat = /^[a-zA-Z0-9]*[a-zA-Z]+[0-9]*(,?([a-zA-Z0-9]*[a-zA-Z]+[0-9]*)+)*$/i.test($("#launguage").val());
+    if(!pat){
+    $('#e8').html("Only alphabetic/numeric values allowed.");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#e8').html("");
+    }
+    }
+    });
+    
+    $('#mail').blur(function(){
+    var val = $(this).val();
+    if(val==""){
+    $('#e9').html("*Required");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    if(val){
+    var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#mail").val());
+    if(!pat){
+    $('#e9').html("Only alphabetic/numeric values allowed.");
+    $(this).focus();
+    $(this).css("border", "2px solid red");
+    }
+    else {
+    $(this).css("border", "2px solid green");
+    $('#eb11').html("");
+    }
+    }
+    });
+    });
+
+
+

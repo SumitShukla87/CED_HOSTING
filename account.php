@@ -108,6 +108,9 @@ if (isset($_POST['register'])) {
                             <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i>
                                 </i>Sign Up for Newsletter</label>
                         </a>
+                        <!-- pattern="((^[0-9]*$)|(^[A-Za-z]+$))" free domain -->
+                        <!-- pattern='((^[0-9]*$)|(^[A-Za-z]+$))' mail box -->
+                        <!-- pattern='^[a-zA-Z0-9]*[a-zA-Z]+[0-9]*(,?([a-zA-Z0-9]*[a-zA-Z]+[0-9]*)+)*$' launguage -->
                     </div>
                     <div class="register-bottom-grid">
                         <h3>

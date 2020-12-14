@@ -242,8 +242,9 @@ $prod = new Product();?>
 
             
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Enter Product Name</label>
-                <input class="form-control" type="text" name="product_name" required placeholder="Enter Product Name  Here" id="example-text-input">
+                <label for="pname" class="form-control-label">Enter Product Name</label>
+                <input class="form-control" type="text" name="product_name" required placeholder="Enter Product Name  Here" id="pname">
+                <span id="e1" class="error"></span>
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Page Url</label>
@@ -253,40 +254,48 @@ $prod = new Product();?>
             <h3>Product Description</h3>
             <hr>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Enter Monthly Price</label>
-                <input class="test1 form-control" type="number" placeholder="ex:23" name="mprice" required  id="example-text-input">
+                <label for="mprice" class="form-control-label">Enter Monthly Price</label>
+                <input class="test1 form-control" type="number" placeholder="ex:23" name="mprice" required  id="mprice">
+                <span id="e2" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Enter Annual Price</label>
-                <input class="test1 form-control" type="number"  placeholder="ex:23" name="aprice" required  id="example-text-input">
+                <label for="aprice" class="form-control-label">Enter Annual Price</label>
+                <input class="test1 form-control" type="number"  placeholder="ex:23" name="aprice" required  id="aprice">
+                <span id="e3" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">SKU</label>
-                <input class="form-control" type="text" name="sku" required  id="example-text-input">
+                <label for="sku" class="form-control-label">SKU</label>
+                <input class="form-control" type="text" name="sku" required  id="sku">
+                <span id="e4" class="error"></span>
             </div>
             <div class="clearfix"></div>
             <hr>
             <h4>Features</h4>
            <hr>
            <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Web Space In GB</label>
-                <input class="form-control" type="text" name="webspace" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
+                <label for="webspace" class="form-control-label">Web Space In GB</label>
+                <input class="form-control" type="number" name="webspace" placeholder="enter 0.5 for 512 mb" required  id="webspace">
+                <span id="e5" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Bandwidth In GB</label>
-                <input class="form-control" type="text" name="gband_width" placeholder="enter 0.5 for 512 mb" required  id="example-text-input">
+                <label for="bandwidth" class="form-control-label">Bandwidth In GB</label>
+                <input class="form-control" type="number" name="gband_width" placeholder="enter 0.5 for 512 mb" required  id="bandwidth">
+                <span id="e6" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Free Domain</label>
-                <input class="form-control" type="text" name="domain" placeholder="Enter 0 if no domain is avilable" required  id="example-text-input">
+                <label for="fdomain" class="form-control-label">Free Domain</label>
+                <input class="form-control" type="text" name="domain" placeholder="Enter 0 if no domain is avilable" required  id="fdomain">
+                <span id="e7" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Launguage/Technically Support</label>
-                <input class="form-control" type="text" name="launguage" placeholder="Separate by (,) Ex: PHP, MySQL, MongoDB" required  id="example-text-input">
+                <label for="launguage" class="form-control-label">Launguage/Technically Support</label>
+                <input class="form-control" type="text" name="launguage" placeholder="Separate by (,) Ex: PHP, MySQL, MongoDB" required  id="launguage">
+                <span id="e8" class="error"></span>
             </div>
             <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Mailbox</label>
-                <input class="form-control" type="text" name="mail_box" placeholder="Enter Number of mailbox will be provided, enter 0 if none" required  id="example-text-input">
+                <label for="mail" class="form-control-label">Mailbox</label>
+                <input class="form-control" type="text" name="mail_box" placeholder="Enter Number of mailbox will be provided, enter 0 if none" required  id="mail">
+                <span id="e9" class="error"></span>
             </div>
 
 
