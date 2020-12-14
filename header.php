@@ -85,8 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <?php $details =$prod->showSubcategory($db->conn);
                                         foreach ($details as $key=> $value) {?>
                                         <li>
-                                            <a href="
-                                            <?php echo $value['link']; ?>"><?php echo $value['prod_name'];?></a>
+                                            <a href="catpage.php?id=<?php echo $value['id']; ?>"><?php echo $value['prod_name'];?></a>
                                         </li>
                                         <?php } ?>
                                     </ul>
@@ -128,8 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <?php $details =$prod->showSubcategory($db->conn);
                                                 foreach ($details as $key=> $value) {?>
                                                 <li>
-                                                    <a href="
-                                                        <?php echo $value['html']; ?>"><?php echo $value['prod_name'];?></a>
+                                                    <a href="catpage.php?id=<?php echo $value['id']; ?>"><?php echo $value['prod_name'];?></a>
                                                 </li>
                                                 <?php } ?>
                                             </ul>
