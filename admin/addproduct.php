@@ -254,11 +254,11 @@ $prod = new Product();?>
             <hr>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Enter Monthly Price</label>
-                <input class="form-control" type="number" class="test1" placeholder="ex:23" name="mprice" required  id="example-text-input">
+                <input class="test1 form-control" type="number" placeholder="ex:23" name="mprice" required  id="example-text-input">
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Enter Annual Price</label>
-                <input class="form-control" type="number" class="test1" placeholder="ex:23" name="aprice" required  id="example-text-input">
+                <input class="test1 form-control" type="number"  placeholder="ex:23" name="aprice" required  id="example-text-input">
             </div>
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">SKU</label>
