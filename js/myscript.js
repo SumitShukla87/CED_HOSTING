@@ -121,15 +121,15 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $('.inputVal').keyup(function () {
-        var val = $(this).val();
-        if (isNaN(val)) {
-            val = val.replace(/[^0-9\.]/g, '');
-            if (val.split('.').length > 2)
-                val = val.replace(/\.+$/, "");
-        }
-        $(this).val(val);
-    });
+    // $('.inputVal').keyup(function () {
+    //     var val = $(this).val();
+    //     if (isNaN(val)) {
+    //         val = val.replace(/[^0-9\.]/g, '');
+    //         if (val.split('.').length > 2)
+    //             val = val.replace(/\.+$/, "");
+    //     }
+    //     $(this).val(val);
+    // });
 
     // $('select').blur(function(){
     // var val = $(this).val();
@@ -174,9 +174,17 @@ $(document).ready(function () {
             $(this).css("border", "2px solid red");
             enableButton();
         }
-        else {
-            $(this).css("border", "2px solid green");
-            $('#e2').html(""); enableButton();
+        if (val) {
+            var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#mprice").val());
+            if (!pat) {
+                $('#e2').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e2').html(""); enableButton();
+            }
         }
     });
 
@@ -188,9 +196,17 @@ $(document).ready(function () {
             $(this).css("border", "2px solid red");
             enableButton();
         }
-        else {
-            $(this).css("border", "2px solid green");
-            $('#e3').html(""); enableButton();
+        if (val) {
+            var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#aprice").val());
+            if (!pat) {
+                $('#e3').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e3').html(""); enableButton();
+            }
         }
     });
 
@@ -225,10 +241,17 @@ $(document).ready(function () {
             $(this).css("border", "2px solid red");
             enableButton();
         }
-        else {
-            $(this).css("border", "2px solid green");
-            $('#e5').html(""); enableButton();
-            
+        if (val) {
+            var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#webspace").val());
+            if (!pat) {
+                $('#e5').html("**numeric values only single'.' is allowed <br>Max length 5");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e5').html(""); enableButton();
+            }
         }
     });
 
@@ -240,9 +263,17 @@ $(document).ready(function () {
             $(this).css("border", "2px solid red");
             enableButton();
         }
-        else {
-            $(this).css("border", "2px solid green");
-            $('#e6').html(""); enableButton();
+        if (val) {
+            var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#bandwidth").val());
+            if (!pat) {
+                $('#e6').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e6').html(""); enableButton();
+            }
         }
     });
 
