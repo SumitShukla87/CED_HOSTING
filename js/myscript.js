@@ -177,7 +177,7 @@ $(document).ready(function () {
         if (val) {
             var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#mprice").val());
             if (!pat) {
-                $('#e2').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $('#e2').html("*Onlynumeric values allowed, only single'.' is allowed <br>Max length 15");
                 $(this).focus();
                 $(this).css("border", "2px solid red");
             }
@@ -199,7 +199,7 @@ $(document).ready(function () {
         if (val) {
             var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#aprice").val());
             if (!pat) {
-                $('#e3').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $('#e3').html("*Only numeric values allowed, only single'.' is allowed <br>Max length 15");
                 $(this).focus();
                 $(this).css("border", "2px solid red");
             }
@@ -244,7 +244,7 @@ $(document).ready(function () {
         if (val) {
             var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#webspace").val());
             if (!pat) {
-                $('#e5').html("**numeric values only single'.' is allowed <br>Max length 5");
+                $('#e5').html("*Only numeric values allowed, only single'.' is allowed <br>Max length 5");
                 $(this).focus();
                 $(this).css("border", "2px solid red");
             }
@@ -266,7 +266,7 @@ $(document).ready(function () {
         if (val) {
             var pat = /^([0-9]*|\d*\.\d{1}?\d*)$/i.test($("#bandwidth").val());
             if (!pat) {
-                $('#e6').html("*numeric values only single'.' is allowed <br>Max length 5");
+                $('#e6').html("*Only numeric values allowed,only single'.' is allowed <br>Max length 5");
                 $(this).focus();
                 $(this).css("border", "2px solid red");
             }

@@ -223,7 +223,7 @@ class Product
     public function singleproduct($id, $conn)
     {
         $a=array();
-         $sql = "SELECT * FROM  `tbl_product_description`  INNER JOIN `tbl_product` ON `tbl_product_description`.`prod_id` = `tbl_product`.`id` WHERE `prod_parent_id`='".$id."'";
+         $sql = "SELECT * FROM  `tbl_product_description`  INNER JOIN `tbl_product` ON `tbl_product_description`.`prod_id` = `tbl_product`.`id` WHERE `prod_parent_id`='".$id."' AND `prod_available`=1 ";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
