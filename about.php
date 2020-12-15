@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   require "header.php"; ?>
+   require "header.php"; ?> 
         <!--about--->
                 <div class="content">
                     <div class="about-section">
