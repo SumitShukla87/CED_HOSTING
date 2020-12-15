@@ -121,7 +121,7 @@ class Product
     public function showCategoryname($id,$conn)
     {
         $a=array();
-        $sql = "SELECT `prod_name` from `tbl_product` Where `id`='".$id."'";
+        $sql = "SELECT `prod_name` , `html` from `tbl_product` Where `id`='".$id."'";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);

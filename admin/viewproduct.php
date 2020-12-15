@@ -22,29 +22,28 @@ $prod = new Product();?>
 <div class="main-content" id="panel">
 <?php
 if (isset($_POST['update'])) {
-        
-        $id = isset($_POST['id'])?$_POST['id']:'';
-        $name = isset($_POST['name'])?$_POST['name']:'';
-        $mon_price = isset($_POST['mprice'])?$_POST['mprice']:'';
-        $annual_price = isset($_POST['aprice'])?$_POST['aprice']:'';
-        $sku = isset($_POST['sku'])?$_POST['sku']:'';
-        $webspace = isset($_POST['webspace'])?$_POST['webspace']:'';
-        $bandwidth = isset($_POST['bandwidth'])?$_POST['bandwidth']:'';
-        $domain = isset($_POST['domain'])?$_POST['domain']:'';
-        $launguage = isset($_POST['launguage'])?$_POST['launguage']:'';
-        $mail_box = isset($_POST['mail_box'])?$_POST['mail_box']:'';
+    $id = isset($_POST['id'])?$_POST['id']:'';
+    $name = isset($_POST['name'])?$_POST['name']:'';
+    $mon_price = isset($_POST['mprice'])?$_POST['mprice']:'';
+    $annual_price = isset($_POST['aprice'])?$_POST['aprice']:'';
+    $sku = isset($_POST['sku'])?$_POST['sku']:'';
+    $webspace = isset($_POST['webspace'])?$_POST['webspace']:'';
+    $bandwidth = isset($_POST['bandwidth'])?$_POST['bandwidth']:'';
+    $domain = isset($_POST['domain'])?$_POST['domain']:'';
+    $launguage = isset($_POST['launguage'])?$_POST['launguage']:'';
+    $mail_box = isset($_POST['mail_box'])?$_POST['mail_box']:'';
 
       
-        $features = array('webspace'=>$webspace,
+    $features = array('webspace'=>$webspace,
         'bandwidth' => $bandwidth,
         'domain'=> $domain,
         'launguage' => $launguage,
-        'mail_box' => $mail_box  
+        'mail_box' => $mail_box
       
         );
-        $prod_features = json_encode($features);
+    $prod_features = json_encode($features);
         
-        $prod->updateProduct($id, $name,  $prod_features, $mon_price, $annual_price, $sku, $db->conn);
+    $prod->updateProduct($id, $name, $prod_features, $mon_price, $annual_price, $sku, $db->conn);
 }
 ?>
     
@@ -277,11 +276,12 @@ if (isset($_POST['update'])) {
                                                 Banwidth(in gb:)
                                                 </th>
                                                 <th>
+                                                
                                                 Free Domain</th>
                                                 <th>Launguage</th>
                                                 <th>Mail-Box</th>
                                                 <th>Monthly-Price</th>
-                                                <th>Annual-Box</th>
+                                                <th>Annual-Price</th>
                                                 <th>SKU</th>
                                                 <th scope="col">
                                                     Edit
