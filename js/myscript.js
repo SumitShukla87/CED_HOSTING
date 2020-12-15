@@ -85,7 +85,7 @@ $(document).ready(function () {
     });
 
     $('.test1').keyup(function () {
-        this.value = this.value.replace(/[^0-9\.]/g,'');
+        this.value = this.value.replace(/[^0-9\.]/g, '');
     });
 
 
@@ -120,17 +120,17 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function(){
-    $('.inputVal').keyup(function(){
-    var val = $(this).val();
-    if(isNaN(val)){
-    val = val.replace(/[^0-9\.]/g,'');
-    if(val.split('.').length>2)
-    val = val.replace(/\.+$/,"");
-    }
-    $(this).val(val);
+$(document).ready(function () {
+    $('.inputVal').keyup(function () {
+        var val = $(this).val();
+        if (isNaN(val)) {
+            val = val.replace(/[^0-9\.]/g, '');
+            if (val.split('.').length > 2)
+                val = val.replace(/\.+$/, "");
+        }
+        $(this).val(val);
     });
-    
+
     // $('select').blur(function(){
     // var val = $(this).val();
     // if(val==""){
@@ -143,164 +143,197 @@ $(document).ready(function(){
     // $('#eb1').html("");
     // }
     // });
-    
-    $('#pname').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e1').html("*Required");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    if(val){
-    var pat = /^\d*?[a-zA-Z][a-zA-Z0-9\-][a-zA-Z0-9]{0,}\d*$/i.test($("#pname").val());
-    if(!pat){
-    $('#e1').html("*Alpha numeric/ alphabetic only'-' is allowed");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e1').html("");
-    }
-    }
+
+    $('#pname').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e1').html("*Required");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        if (val) {
+            var pat = /^\d*?[a-zA-Z][a-zA-Z0-9\-]{0,}[a-zA-Z0-9]\d*$/i.test($("#pname").val());
+            if (!pat) {
+                $('#e1').html("*Alpha numeric/ alphabetic only'-' is allowed <br> No White Space is allowed");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e1').html(""); enableButton();
+            }
+        }
     });
-    
-    $('#mprice').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e2').html("*Only Numeric Value Allowed Max-length:15");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e2').html("");
-    }
+
+    $('#mprice').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e2').html("*Only Numeric Value Allowed Max-length:15");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        else {
+            $(this).css("border", "2px solid green");
+            $('#e2').html(""); enableButton();
+        }
     });
-    
-    $('#aprice').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e3').html("*Only Numeric Value Allowed Max-length:15");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e3').html("");
-    }
+
+    $('#aprice').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e3').html("*Only Numeric Value Allowed Max-length:15");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        else {
+            $(this).css("border", "2px solid green");
+            $('#e3').html(""); enableButton();
+        }
     });
-    
-    $('#sku').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e4').html("*Required");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    if(val){
-    var pat = /^\d?[a-zA-Z0-9#-]+?[a-zA-Z0-9][a-zA-Z0-9]{0,}\d*$/i.test($("#sku").val());
-    if(!pat){
-    $('#e4').html("Only #,- allowed. With Alphabetic Numbers !!");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e4').html("");
-    }
-    }
+
+    $('#sku').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e4').html("*Required");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        if (val) {
+            var pat = /^\d?[a-zA-Z0-9#-]+?[a-zA-Z0-9][a-zA-Z0-9]{0,}\d*$/i.test($("#sku").val());
+            if (!pat) {
+                $('#e4').html("Only #,- allowed. With Alphabetic Numbers !!");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+                enableButton();
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e4').html(""); enableButton();
+            }
+        }
     });
-    
-    $('#webspace').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e5').html("*Only Numeric Value Allowed Max-length:5");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e5').html("");
-    }
+
+    $('#webspace').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e5').html("*Only Numeric Value Allowed Max-length:5");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        else {
+            $(this).css("border", "2px solid green");
+            $('#e5').html(""); enableButton();
+            
+        }
     });
-    
-    $('#bandwidth').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e6').html("*Only Numeric Value Allowed Max-length:5");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e6').html("");
-    }
+
+    $('#bandwidth').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e6').html("*Only Numeric Value Allowed Max-length:5");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        else {
+            $(this).css("border", "2px solid green");
+            $('#e6').html(""); enableButton();
+        }
     });
-    
-    $('#fdomain').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e7').html("*Required");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    if(val){
-    var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#fdomain").val());
-    if(!pat){
-    $('#e7').html("Only alphabetic/numeric values allowed.");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e7').html("");
-    }
-    }
+
+    $('#fdomain').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e7').html("*Required");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        if (val) {
+            var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#fdomain").val());
+            if (!pat) {
+                $('#e7').html("Only alphabetic/numeric values allowed.");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+                enableButton();
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e7').html(""); enableButton();
+            }
+        }
     });
-    
-    $('#launguage').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e8').html("*Required");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    if(val){
-    var pat = /^[a-zA-Z0-9]*[a-zA-Z]+[0-9]*(,?([a-zA-Z0-9]*[a-zA-Z]+[0-9]*)+)*$/i.test($("#launguage").val());
-    if(!pat){
-    $('#e8').html("Only alphabetic/Alpha-numeric values allowed.");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e8').html("");
-    }
-    }
+
+    $('#launguage').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e8').html("*Required");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        if (val) {
+            var pat = /^[a-zA-Z0-9]*[a-zA-Z]+[0-9]*(,?([a-zA-Z0-9]*[a-zA-Z]+[0-9]*)+)*$/i.test($("#launguage").val());
+            if (!pat) {
+                $('#e8').html("Only alphabetic/Alpha-numeric values allowed.");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+                enableButton();
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e8').html(""); enableButton();
+            }
+        }
     });
-    
-    $('#mail').blur(function(){
-    var val = $(this).val();
-    if(val==""){
-    $('#e9').html("*Required");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    if(val){
-    var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#mail").val());
-    if(!pat){
-    $('#e9').html("Only alphabetic/numeric values allowed.");
-    $(this).focus();
-    $(this).css("border", "2px solid red");
-    }
-    else {
-    $(this).css("border", "2px solid green");
-    $('#e9').html("");
-    }
-    }
+
+    $('#mail').blur(function () {
+        var val = $(this).val();
+        if (val == "") {
+            $('#e9').html("*Required");
+            $(this).focus();
+            $(this).css("border", "2px solid red");
+            enableButton();
+        }
+        if (val) {
+            var pat = /(^[0-9]*$)|(^[A-Za-z]+$)/i.test($("#mail").val());
+            if (!pat) {
+                $('#e9').html("Only alphabetic/numeric values allowed.");
+                $(this).focus();
+                $(this).css("border", "2px solid red");
+                enableButton();
+            }
+            else {
+                $(this).css("border", "2px solid green");
+                $('#e9').html(""); enableButton();
+            }
+        }
     });
-    });
+
+    function enableButton(){
+        var a = $('select').val();
+        var b = $('#pname').val();
+        var c = $('#mprice').val();
+        var d = $('#aprice').val();
+        var e = $('#sku').val();
+        var f = $('#webspace').val();
+        var g = $('#bandwidth').val();
+        var h = $('#fdomain').val();
+        var i = $('#launguage').val();
+        var j = $('#mail').val();
+        
+        if(a!="" && b!="" && c!="" && d!="" && e!="" && f!="" && g!="" && h!="" && i!="" && j!="")
+        {
+        $(".submit").removeClass("disable");
+        }
+        else $(".submit").addClass("disable");
+        }
+});
 
 
 

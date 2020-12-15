@@ -302,7 +302,7 @@ $prod = new Product();?>
             </div>
 
 
-            <input type="submit" name="add" class="btn btn-outline-success" value="Add-Product">
+            <input type="submit" name="add" class="btn btn-outline-success submit disable" value="Add-Product">
         </form>
     </div>
     </div>

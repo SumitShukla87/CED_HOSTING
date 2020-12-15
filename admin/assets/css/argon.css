@@ -29850,3 +29850,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance:textfield;
 }
+/* Css of disable button*/
+.disable{
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: rgb(70, 70, 70);
+}

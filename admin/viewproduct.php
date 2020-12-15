@@ -257,9 +257,7 @@ if (isset($_POST['update'])) {
                                     <table id='example' class="table table-bordered">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">
-                                                    Id
-                                                </th>
+                                              
                                                 <th scope="col" class="sort">
                                                     Category
                                                 </th>
@@ -299,8 +297,7 @@ if (isset($_POST['update'])) {
                                         
                                             <tr>
                                             <form action="" method="POST">
-                                                <td>
-                                                    <?php echo $value['id']; ?></td>
+                                                
                                               
                                                    <td> <?php $id = $value['prod_parent_id'];
                                                     $details1 =$prod->showCategoryname($id, $db->conn);
