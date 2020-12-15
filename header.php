@@ -1,6 +1,6 @@
 <?php
 require_once "class/Dbcon.php";
-require "class/Product.php";
+require_once "class/Product.php";
 $db = new Dbcon();
 $prod = new Product();?>
 <!DOCTYPE HTML>
