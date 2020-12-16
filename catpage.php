@@ -56,7 +56,7 @@
                                                     <li><strong>location</strong> : <img src="images/india.png"></li>
                                                     </ul>
                                                 </div>
-                                                <a href="#">buy now</a>
+                                                <a href="cart.php?id=<?php echo $value['prod_id'] ?>">buy now</a>
                                             </div>
                                             <?php } ?>
                                             <!-- <div class="col-md-3 linux-price">
