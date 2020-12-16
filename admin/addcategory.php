@@ -343,8 +343,12 @@ $prod = new Product();?>
                                 <input class="form-control" type="text" name="sub_category" required placeholder="Enter Sub-Category Here" id="subcat">
                             </div>
                             <div class="form-group">
-                                <label for="linkk" class="form-control-label">Link Address</label>
-                                <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="linkk">
+                                <label for="link" class="form-control-label">Link Address</label>
+                                <!-- <input class="form-control" type="text" name="link" required placeholder="Enter Link-Address Here" id="linkk"> -->
+                             
+                                          <textarea id="editor" name="link"></textarea>
+   
+
                             </div>
                             <input type="submit" name="add" class="btn btn-outline-danger" value="Add-Sub-category">
                         </form>
@@ -368,9 +372,6 @@ $prod = new Product();?>
                                             </th>
                                             <th scope="col">
                                                 Sub-Category
-                                            </th>
-                                            <th scope="col">
-                                                Link
                                             </th>
                                             <th scope="col">
                                                 Visible/Not Visible
@@ -414,14 +415,7 @@ $prod = new Product();?>
                                             <td>
                                                 <?php echo $value['prod_name']?></td>
                                             <?php }?>
-                                            <?php if (isset($_POST['edit']) && $value['id']  == $_POST['id']) { ?>
-                                            <td>
-                                                <input type="text" name="link" value="<?php echo $value['html'] ?>">
-                                            </td>
-                                            <?php } else { ?>
-                                            <td>
-                                                <?php echo $value['html']?></td>
-                                            <?php }?>
+                                            
                                             <td>
                                                 <?php
                                                     $status = $value['prod_available'];
@@ -473,4 +467,20 @@ $prod = new Product();?>
     </div>
 </div>
 </div>
+<script src="https://cdn.tiny.cloud/1/l21oykp5bx4mzkwhrdoq0lbtcezl9dq0owjq0db3lqf3h8d9/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+  <script>
+    tinymce.init({
+      selector: 'textarea#editor',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste image table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+   });
+  </script>
+
 <?php require "footer.php";?>
