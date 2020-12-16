@@ -50,7 +50,7 @@
                                                     <li><strong><?php echo $webspace; ?>gb</strong> Disk Space</li>
                                                     <li><strong><?php echo $bandwidth;?>gb</strong> Data Transfer</li>
                                                     <li><strong><?php echo $mail_box;?></strong> Email Accounts</li>
-                                                    <li><strong><?php echo $launguage;?></strong> Launguage Support</li>
+                                                    <li>Launguage Support:<strong><?php echo $launguage;?></strong></li>
                                                     <!-- <li><strong>Includes </strong>  Global CDN</li>
                                                     <li><strong>High Performance</strong>  Servers</li> -->
                                                     <li><strong>location</strong> : <img src="images/india.png"></li>

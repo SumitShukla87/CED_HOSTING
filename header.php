@@ -16,6 +16,11 @@ $prod = new Product();?>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Planet Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        
+        
+
+
+
             <script type="application/x-javascript"> 
             addEventListener("load", function() {
                         setTimeout(hideURLbar, 0);
@@ -100,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="contact.php">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="contact.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f">
+                                    <a href="cart.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f">
                                         </i> Cart</a>
                                 </li>
                                 <li>
@@ -142,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <a href="contact.php">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="contact.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f">
+                                            <a href="cart.php"><i class="fa fa-cart-plus" style="font-size:20px;color:#e7663f">
                                                 </i> Cart</a>
                                         </li>
                                         <li>
