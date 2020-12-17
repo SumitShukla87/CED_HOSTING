@@ -99,6 +99,7 @@ $(document).ready(function () {
 
 
 });
+// Function to remove the Spcaes from the String of the textbox
 // function removeSpaces(string) {
 //     return string.split(' ').join('');
 //    }
@@ -160,8 +161,10 @@ $(document).ready(function () {
                 $(this).css("border", "2px solid red");
             }
             else {
-                $(this).css("border", "2px solid green");
-                $('#e1').html(""); enableButton();
+                
+                $('#e1').html("Correct");
+                
+                $(this).css("border", "2px solid green"); enableButton();
             }
         }
     });
@@ -183,7 +186,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e2').html(""); enableButton();
+                $('#e2').html("Correct"); enableButton();
             }
         }
     });
@@ -205,7 +208,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e3').html(""); enableButton();
+                $('#e3').html("Correct"); enableButton();
             }
         }
     });
@@ -228,7 +231,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e4').html(""); enableButton();
+                $('#e4').html("Correct"); enableButton();
             }
         }
     });
@@ -250,7 +253,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e5').html(""); enableButton();
+                $('#e5').html("Correct"); enableButton();
             }
         }
     });
@@ -272,7 +275,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e6').html(""); enableButton();
+                $('#e6').html("Correct"); enableButton();
             }
         }
     });
@@ -295,7 +298,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e7').html(""); enableButton();
+                $('#e7').html("Correct"); enableButton();
             }
         }
     });
@@ -318,7 +321,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e8').html(""); enableButton();
+                $('#e8').html("Correct"); enableButton();
             }
         }
     });
@@ -341,7 +344,7 @@ $(document).ready(function () {
             }
             else {
                 $(this).css("border", "2px solid green");
-                $('#e9').html(""); enableButton();
+                $('#e9').html("Correct"); enableButton();
             }
         }
     });
