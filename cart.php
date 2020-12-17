@@ -25,8 +25,8 @@
         } ?>
         <?php
        
-        if (isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
+        if (isset($_GET['id'])) {
+            $id = base64_decode($_GET['id']);
             $details =$prod->showCart($id, $db->conn);
             foreach ($details as $key=> $value) {
                 $pro_id = $value['prod_id'];
@@ -39,7 +39,7 @@
               
                 $_SESSION['cart'] = array_map("unserialize", array_unique(array_map("serialize", $_SESSION['cart'])));
                 //     unset($_SESSION['cart']);
-        //     print_r($_SESSION['cart']);
+                //     print_r($_SESSION['cart']);
             }
         }?>
 
@@ -70,10 +70,10 @@
         <tr>
         <td><?php echo $v['pro_id']; ?></td>
         <td><?php echo $v['name']; ?></td>
-        <td><?php echo $v['mprice']; ?></td>
-        <td><?php echo $v['aprice']; ?></td>
+        <td>$<?php echo $v['mprice']; ?></td>
+        <td>$<?php echo $v['aprice']; ?></td>
         <td><?php echo $v['sku']; ?></td>
-        <td><button class="bg-warning"><a href="deletecart.php?id=<?php  echo $v['pro_id'];?>" class="bg-warning" >Delete</a></button></td>
+        <td><a href="deletecart.php?id=<?php  echo $v['pro_id'];?>" class="btn btn-danger" >Delete</a></td>
         </tr>
         <?php 
 } ?>

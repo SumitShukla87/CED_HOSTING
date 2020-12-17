@@ -1,19 +1,19 @@
 <?php
 
-if (isset($_REQUEST['id'])) {
+if (isset($_GET['id'])) {
     session_start();
     include_once "class/Dbcon.php";
     include_once "class/Product.php";
     include "header.php";
     $db= new Dbcon();
     $prod = new Product();
-    $id = $_REQUEST['id']; ?>
+    $id = $_GET['id']; ?>
     <!---header--->
         <!---singleblog--->
                 <div class="content">
                 <?php
                                 $details1 =$prod->showCategoryname($id, $db->conn);
-    foreach ($details1 as $k1 =>$v1) {?>
+                foreach ($details1 as $k1 =>$v1) {?>
                 <?php echo $v1['html'];?>
                 <?php } ?>
                     
@@ -57,7 +57,7 @@ if (isset($_REQUEST['id'])) {
                                                     <li><strong>location</strong> : <img src="images/india.png"></li>
                                                     </ul>
                                                 </div>
-                                                <a href="cart.php?id=<?php echo $value['prod_id'] ?>">buy now</a>
+                                                <a href="cart.php?id=<?php echo base64_encode($value['prod_id']);?>">buy now</a>
                                             </div>
                                             <?php } ?>
                                             <div class="clearfix"></div>
