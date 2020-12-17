@@ -1,18 +1,19 @@
 <?php
-  session_start();
-  require_once "class/Dbcon.php";
-  require_once "class/Product.php";
-   require "header.php"; 
-   $db= new Dbcon();
-   $prod = new Product();
-   $id = $_REQUEST['id'];
-?>
+
+if (isset($_REQUEST['id'])) {
+    session_start();
+    include_once "class/Dbcon.php";
+    include_once "class/Product.php";
+    include "header.php";
+    $db= new Dbcon();
+    $prod = new Product();
+    $id = $_REQUEST['id']; ?>
     <!---header--->
         <!---singleblog--->
                 <div class="content">
                 <?php
                                 $details1 =$prod->showCategoryname($id, $db->conn);
-                foreach ($details1 as $k1 =>$v1) {?>
+    foreach ($details1 as $k1 =>$v1) {?>
                 <?php echo $v1['html'];?>
                 <?php } ?>
                     
@@ -30,7 +31,7 @@
                                         <div class="linux-prices">
                                             
                                             <?php $details =$prod->singleproduct($id, $db->conn);
-                                            foreach ($details as $key=> $value) {?>
+    foreach ($details as $key=> $value) {?>
                                             <div class="col-md-3 linux-price">
                                             <div class="linux-top">
                                                 <h4><?php echo $value['prod_name']; ?></h4>
@@ -233,4 +234,7 @@
 
                 </div>
             <!---footer--->
-            <?php require "footer.php"; ?>
+            <?php require "footer.php";
+} else {
+    header("location:index.php");
+}?>

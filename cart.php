@@ -36,6 +36,8 @@
                 $sku = $value ['sku'];
                 $data = array('pro_id'=>$pro_id, 'name'=>$name, 'mprice'=>$mprice, 'aprice'=>$aprice, 'sku'=>$sku);
                 array_push($_SESSION['cart'], $data);
+              
+                $_SESSION['cart'] = array_map("unserialize", array_unique(array_map("serialize", $_SESSION['cart'])));
                 //     unset($_SESSION['cart']);
         //     print_r($_SESSION['cart']);
             }
@@ -71,7 +73,7 @@
         <td><?php echo $v['mprice']; ?></td>
         <td><?php echo $v['aprice']; ?></td>
         <td><?php echo $v['sku']; ?></td>
-        <td><a href="#" class="bg-warning" onclick="<?php //session_destroy();?>">Delete</a></td>
+        <td><button class="bg-warning"><a href="deletecart.php?id=<?php  echo $v['pro_id'];?>" class="bg-warning" >Delete</a></button></td>
         </tr>
         <?php 
 } ?>
